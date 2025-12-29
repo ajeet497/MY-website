@@ -1,13 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitcount+Grid+Single:wght@100..900&family=Delicious+Handrawn&family=Delius&family=Emilys+Candy&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@0,100..900;1,100..900&family=Story+Script&display=swap');
 
-   @import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
-   @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitcount+Grid+Single:wght@100..900&family=Delicious+Handrawn&family=Delius&family=Emilys+Candy&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@0,100..900;1,100..900&family=Story+Script&display=swap');
-
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BODY */
 body {
   width: 100vw;
   height: 100vh;
@@ -23,7 +24,7 @@ body {
   align-items: center;
 }
 
-/* SECOND BACKGROUND */
+/* SECOND BACKGROUND (LAYOUT CONTAINER) */
 #second-background {
   width: 70vw;
   height: 70vh;
@@ -31,8 +32,15 @@ body {
   border-radius: 30px;
   box-shadow: 5px 5px 10px gray;
 
+  display: flex;
+  flex-direction: row;        /* default: side by side */
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+
   position: relative;
-  overflow: hidden; /* 🔥 prevents overflow */
+  overflow: hidden;
 }
 
 /* NAVBAR */
@@ -68,26 +76,25 @@ body {
   font-family: "Story Script", sans-serif;
 }
 
-/* INFO SECTION */
+/* PHOTO */
+#photo {
+  width: clamp(260px, 30vmin, 420px);
+  height: clamp(300px, 30vmin, 500px);
+  border-radius: 20px;
+  background-color: aqua;
+  background-image: url(Buggu.jpeg);
+  background-size: cover;
+}
+
+/* INFO */
 #Info {
   width: clamp(260px, 50vmin, 420px);
   padding: 1.2rem;
-
-  
   border-radius: 20px;
-
-  position: absolute;
-  top: 30%;
-  left: 35%;
-  transform: translateX(-50%);
-
-  overflow-wrap: break-word;
-  color:rgb(235, 226, 226);
-  
-
+  color: rgb(235, 226, 226);
 }
 
-/* TEXT RESPONSIVE */
+/* TEXT */
 h1 {
   font-size: clamp(1.5rem, 4vw, 2.4rem);
   font-family: "Emilys Candy", serif;
@@ -105,20 +112,20 @@ p {
   font-family: "Delius", cursive;
 }
 
-/* MOBILE FIX */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   #second-background {
+    flex-direction: column;   /* stack vertically */
+    justify-content: center;
+    align-items: center;
     width: 90vw;
-    height: 80vh;
+    height: auto;
   }
 
   #navbar {
     width: 95%;
   }
-
-  #Info {
-    top: 18%;
+  #Info{
+    margin-top: 1vh;
   }
 }
-
-
